@@ -86,7 +86,7 @@ export default {
       if (this.pesan.jumlah_pemesanan) {
         this.pesan.products = this.product;
         axios
-          .post("http://localhost:3000/keranjangs", this.pesan)
+          .post("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/keranjangs", this.pesan)
           .then(() => {
               this.$router.push({path: "/keranjang"})
             this.$toast.success("Sukses Masuk Keranjang.", {

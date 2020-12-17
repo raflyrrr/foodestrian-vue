@@ -86,7 +86,7 @@ export default {
       if (this.pesan.jumlah_pemesanan) {
         this.pesan.products = this.product;
         axios
-          .post("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/keranjangs", this.pesan)
+          .post("http://localhost:3000/keranjangs", this.pesan)
           .then(() => {
               this.$router.push({path: "/keranjang"})
             this.$toast.success("Sukses Masuk Keranjang.", {
@@ -109,7 +109,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/products" + this.$route.params.id)
+      .get("http://localhost:3000/products/" + this.$route.params.id)
       .then((response) => this.setProduct(response.data))
       .catch((error) => console.log(error));
   },

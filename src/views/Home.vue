@@ -47,7 +47,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/best-products")
+      .get("http://localhost:3000/best-products")
       .then((response) => this.setProduct(response.data))
       .catch((error)=>console.log(error))     
   },

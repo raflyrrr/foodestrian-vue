@@ -63,7 +63,7 @@ export default {
     },
     searchFood(){
        axios
-      .get("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/products?q="+this.search)
+      .get("http://localhost:3000/products?q="+this.search)
       .then((response) => this.setProduct(response.data))
       .catch((error) => console.log(error));
 
@@ -71,7 +71,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://my-json-server.typicode.com/raflyrrr/foodestrian-vue/products")
+      .get("http://localhost:3000/products")
       .then((response) => this.setProduct(response.data))
       .catch((error) => console.log(error));
   },

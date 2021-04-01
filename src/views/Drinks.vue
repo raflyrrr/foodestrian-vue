@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row mt-4">
         <div class="col">
-          <h2>Daftar<strong> Makanan</strong></h2>
+          <h2>Daftar<strong> Minuman</strong></h2>
         </div>
       </div>
 
@@ -15,7 +15,7 @@
             v-model="search"
               type="text"
               class="form-control"
-              placeholder="Cari Makanan Kesukaan Anda .."
+              placeholder="Cari Minuman Kesukaan Anda .."
               aria-label="Cari"
               aria-describedby="basic-addon1"
               @keyup="searchFood"
@@ -30,10 +30,10 @@
       <div class="row mb-4">
         <div
           class="col-md-4 mt-4"
-          v-for="product in products"
-          :key="product.id"
+          v-for="minuman in minumans"
+          :key="minuman.id"
         >
-          <h2><CardProduct :product="product" /></h2>
+          <h2><CardProductDrink :productminuman="minuman" /></h2>
         </div>
       </div>
     </div>
@@ -43,36 +43,36 @@
 <script>
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
-import CardProduct from "@/components/CardProduct.vue";
+import CardProductDrink from "@/components/CardProductDrink.vue";
 import axios from "axios";
 export default {
-  name: "Foods",
+  name: "Drinks",
   components: {
     Navbar,
-    CardProduct,
+    CardProductDrink,
   },
   data() {
     return {
-      products: [],
+      minumans: [],
       search: '',
     };
   },
   methods: {
-    setProduct(data) {
-      this.products = data;
+    setMinuman(data) {
+      this.minumans = data;
     },
     searchFood(){
        axios
-      .get("http://localhost:3000/products?q="+this.search)
-      .then((response) => this.setProduct(response.data))
+      .get("http://localhost:3000/minuman?q="+this.search)
+      .then((response) => this.setMinuman(response.data))
       .catch((error) => console.log(error));
 
     }
   },
   mounted() {
     axios
-      .get("http://localhost:3000/products")
-      .then((response) => this.setProduct(response.data))
+      .get("http://localhost:3000/minumans")
+      .then((response) => this.setMinuman(response.data))
       .catch((error) => console.log(error));
   },
 };
